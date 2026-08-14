@@ -1,0 +1,10 @@
+node_modules
+*.local
+node_modules
+.env
+
+.git/
+.github/
+
+.vscode/*
+!.vscode/extensions.json
