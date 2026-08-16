@@ -238,7 +238,7 @@ export const resendOtp = async (req, res) => {
     });
     
   }catch (error) {
-    return req.status(500).json({ message: "Internal server error." });
+    return res.status(500).json({ message: "Internal server error." });
   }
 }
 
@@ -265,7 +265,7 @@ export const resetPassword = async (req, res) => {
 
     return res.status(200).json({ success : true, message : "Password reseted successfully" });
   }catch (error) {
-    return req.status(500).json({ message: "Internal server error." });
+    return res.status(500).json({ message: "Internal server error." });
   }
 }
 
@@ -274,7 +274,7 @@ export const logout = (req, res) => {
     res.cookie("jwt", "", { maxAge: 0 });
     return res.status(200).json({ message: "Logged out successfully." });
   } catch (error) {
-    return req.status(500).json({ message: "Internal server error." });
+    return res.status(500).json({ message: "Internal server error." });
   }
 };
 

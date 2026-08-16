@@ -8,7 +8,11 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:5173"],
+    origin:
+      process.env.NODE_ENV === "development"
+        ? process.env.CLIENT_URL_DEV
+        : process.env.CLIENT_URL_PROD,
+    credentials: true,
   },
 });
 
@@ -21,7 +25,7 @@ async function getOnlineUsers() {
   const keys = await redis.keys("socket:*");
   const onlineUsers = [];
 
-  for(const key of keys) {
+  for (const key of keys) {
     const userId = key.split(":")[1];
     onlineUsers.push(userId);
   }
@@ -35,7 +39,7 @@ io.on("connection", (socket) => {
   const userId = socket.handshake.query.userId;
   if (userId) {
     // userSocketMap[userId] = socket.id;
-    redis.set(`socket:${userId}`,socket.id);
+    redis.set(`socket:${userId}`, socket.id);
   }
 
   // io.emit("getOnlineUsers", Object.keys(userSocketMap));
