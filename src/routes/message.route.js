@@ -12,6 +12,6 @@ router.get('/users', protectRoute, getUsersForSidebar);
 
 router.get('/:id', protectRoute, getMessages);
 
-router.post('/send/:id',upload.single("messageImage"), protectRoute, sendMessage);
+router.post('/send/:id', upload.single('messageImage'), protectRoute, sendMessage);
 
 export default router;

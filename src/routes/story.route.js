@@ -8,7 +8,7 @@ const upload = multer({ storage: storage });
 
 const router = express.Router();
 
-router.post('/uploadStory', protectRoute, upload.single("storyImage"), uploadStory);
+router.post('/uploadStory', protectRoute, upload.single('storyImage'), uploadStory);
 
 router.get('/getStories', protectRoute, getStories);
 

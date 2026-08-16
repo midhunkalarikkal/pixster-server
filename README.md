@@ -28,13 +28,13 @@ PIXSTER-SERVER provides the backend infrastructure for the Pixster platform.
 
 The service is responsible for:
 
-* 🔐 **Authentication & Authorization**
-* 🌐 **REST API Services**
-* 🗄️ **Database Operations**
-* 🖼️ **Media Storage**
-* ⚡ **Redis Caching**
-* 🔄 **Real-Time Communication**
-* 🔗 **Client–Server Integration**
+- 🔐 **Authentication & Authorization**
+- 🌐 **REST API Services**
+- 🗄️ **Database Operations**
+- 🖼️ **Media Storage**
+- ⚡ **Redis Caching**
+- 🔄 **Real-Time Communication**
+- 🔗 **Client–Server Integration**
 
 The backend is designed to support the core functionality of the Pixster social media platform while providing a scalable foundation for its production deployment.
 
