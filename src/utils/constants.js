@@ -1,3 +1,5 @@
+export const isDev = process.env.NODE_ENV === 'development';
+
 export const otpEmailTemplateFirst = `<div style="background-color:#0f0f0f; color:#e0e0e0; padding:40px; font-family:Arial, sans-serif; border-radius:10px; max-width:600px; margin:auto;">
       <h2 style="color:#00ff88; text-align:center;">CodeByMidApps</h2>
       <h3 style="text-align:center; color:#ffffff;">Welcome to <span style="color:#00ff88;">Pixster</span> 👋</h3>

@@ -1,7 +1,17 @@
 import multer from 'multer';
 import express from 'express';
 import { protectRoute } from '../middleware/auth.middleware.js';
-import { checkAuth, login, logout, removeProfile, resendOtp, resetPassword, signup, updateProfile, verifyOtp } from '../controllers/auth.controller.js';
+import {
+    checkAuth,
+    login,
+    logout,
+    removeProfile,
+    resendOtp,
+    resetPassword,
+    signup,
+    updateProfile,
+    verifyOtp,
+} from '../controllers/auth.controller.js';
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
@@ -16,7 +26,7 @@ router.post('/resendOtp', resendOtp);
 
 router.post('/resetPassword', resetPassword);
 
-router.post('/login',login);
+router.post('/login', login);
 
 router.post('/logout', logout);
 

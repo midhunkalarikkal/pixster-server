@@ -1,41 +1,48 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const notificationSchema = new mongoose.Schema(
-  {
-    message: {
-      type: String,
-      required: true,
-      default: null,
+    {
+        message: {
+            type: String,
+            required: true,
+            default: null,
+        },
+        toUserId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User',
+            required: true,
+        },
+        fromUserId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User',
+            default: null,
+        },
+        isHaveButton: {
+            type: Boolean,
+            default: false,
+        },
+        buttonText: {
+            type: String,
+            default: null,
+        },
+        notificationType: {
+            type: String,
+            enum: [
+                'followRequest',
+                'requestAccept',
+                'postLiked',
+                'postCommented',
+                'commentLiked',
+                'followed',
+            ],
+            required: true,
+        },
     },
-    toUserId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-      required: true,
+    {
+        timestamps: true,
     },
-    fromUserId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-      default: null,
-    },
-    isHaveButton: {
-      type: Boolean,
-      default: false,
-    },
-    buttonText: {
-      type: String,
-      default: null,
-    },
-    notificationType: {
-      type: String,
-      enum: ["followRequest", "requestAccept", "postLiked", "postCommented", "commentLiked", "followed" ],
-      required: true,
-    },
-  },
-  {
-    timestamps: true,
-  }
 );
 
-const Notification = mongoose.model("Notification", notificationSchema);
+const Notification = mongoose.model('Notification', notificationSchema);
 
 export default Notification;
