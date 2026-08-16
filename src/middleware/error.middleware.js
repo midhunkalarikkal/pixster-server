@@ -1,4 +1,4 @@
-import { isDev } from '../config/env.js';
+import { isDev } from '../utils/constants';
 
 export const errorHandler = (error, req, res, _next) => {
     if (isDev) {
