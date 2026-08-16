@@ -4,7 +4,13 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "nodemon src/index.js",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "check": "node --check src/index.js",
+    "validate": "npm run lint && npm run format:check && npm run check"
   },
   "keywords": [],
   "author": "",
@@ -30,6 +36,11 @@
     "socket.io": "^4.8.1"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.8.1",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.11.0",
+    "nodemon": "^3.1.9",
+    "prettier": "^3.9.6"
   }
 }
